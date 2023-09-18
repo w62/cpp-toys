@@ -5,7 +5,8 @@ RM=rm
 
 MFLAGS=-fmodules-ts 
 HFLAGS=-x c++-system-header
-CFLAGS=-std=c++20
+CFLAGS=-std=c++20 -ggdb -pedantic-errors -Wall -Weffc++ \
+	   -Wextra -Wconversion -Wsign-conversion -Werror
 
 MODULES = iostream
 GCM_CACHE = gcm.cache
@@ -26,10 +27,12 @@ force:
 $(MAIN): $(MAIN).cpp
 	$(CXX) $(CFLAGS) $(MFLAGS) $(HFLAGS) $(MODULES)
 	$(CXX) $(CFLAGS) $(MFLAGS) -o $(MAIN) $(MAIN).cpp
+	./$(MAIN)
 
 $(HELLOWORLD): $(HELLOWORLD).cpp
 	$(CXX) $(CFLAGS) $(MFLAGS) $(HFLAGS) $(MODULES)
 	$(CXX) $(CFLAGS) $(MFLAGS) -o $(HELLOWORLD) $(HELLOWORLD).cpp
+	./$(HELLOWORLD)
 
 clean:
 	for i in $(TARGETS); do \
