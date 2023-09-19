@@ -1,16 +1,18 @@
 #include <iostream>
 
-int returnFive()
+void add2(int x)
 {
-	return 5;
+	x += 2;
+	std::cout << x << '\n';
+
 }
 
 int main()
 {
-	std::cout << returnFive() << '\n';
-	std::cout << returnFive() + 2 << '\n';
-
-	returnFive();
-
+	int a;
+	a = 4;
+	add2(a); 
+	std::cout << "a: " << a << '\n';
+	
 	return 0;
 }

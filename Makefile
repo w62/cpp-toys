@@ -24,30 +24,17 @@ TARGETS = $(MAIN) $(HELLOWORLD)
 
 all: $(TARGETS)
 
-# gcc version
-#$(MAIN): $(MAIN).cpp
-#	$(CXX) $(CFLAGS) $(MFLAGS) $(HFLAGS) $(MODULES)
-#	$(CXX) $(CFLAGS) $(MFLAGS)-o $(MAIN) $(MAIN).cpp
-#	./$(MAIN)
 
 $(MAIN): $(MAIN).cpp
-#	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
-#	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(MAIN) $(MAIN).cpp
 	$(CXX) $(CFLAGS)  -o $(MAIN) $(MAIN).cpp
 	./$(MAIN)	
 
 
-#gcc version
-#$(HELLOWORLD): $(HELLOWORLD).cpp
-#	$(CXX) $(CFLAGS) $(MFLAGS) $(HFLAGS) $(MODULES)
-#	$(CXX) $(CFLAGS) $(MFLAGS) -o $(HELLOWORLD) $(HELLOWORLD).cpp
-#	./$(HELLOWORLD)
 
 $(HELLOWORLD): $(HELLOWORLD).cpp
-#	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
-#	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(HELLOWORLD) $(HELLOWORLD).cpp
 	$(CXX) $(CFLAGS) -o $(HELLOWORLD) $(HELLOWORLD).cpp
 	./$(HELLOWORLD)	
+
 clean:
 	for i in $(TARGETS); do \
 		$(RM) $$i || exit 1; \
