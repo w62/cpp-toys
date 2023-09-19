@@ -8,12 +8,11 @@ RM=rm
 
 # MFLAGS=-fmodules-ts 
 # HFLAGS=-x c++-system-header
-#CFLAGS=-std=c++20 -ggdb -pedantic-errors -Wall -Weffc++ \
+CFLAGS=-std=c++20 -ggdb -pedantic-errors -Wall -Weffc++ \
 	   -Wextra -Wconversion -Wsign-conversion -Werror
 
 MFLAGS = -xc++-system-header --precompile 
 HFLAGS = -fmodule-file
-CFLAGS = -std=c++20 
 
 MODULES = iostream
 GCM_CACHE = gcm.cache
@@ -32,8 +31,9 @@ all: $(TARGETS)
 #	./$(MAIN)
 
 $(MAIN): $(MAIN).cpp
-	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
-	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(MAIN) $(MAIN).cpp
+#	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
+#	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(MAIN) $(MAIN).cpp
+	$(CXX) $(CFLAGS)  -o $(MAIN) $(MAIN).cpp
 	./$(MAIN)	
 
 
@@ -44,8 +44,9 @@ $(MAIN): $(MAIN).cpp
 #	./$(HELLOWORLD)
 
 $(HELLOWORLD): $(HELLOWORLD).cpp
-	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
-	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(HELLOWORLD) $(HELLOWORLD).cpp
+#	$(CXX) $(CFLAGS) $(MFLAGS) $(MODULES) -o $(MODULES).pcm 
+#	$(CXX) $(CFLAGS) $(HFLAGS)=$(MODULES).pcm -o $(HELLOWORLD) $(HELLOWORLD).cpp
+	$(CXX) $(CFLAGS) -o $(HELLOWORLD) $(HELLOWORLD).cpp
 	./$(HELLOWORLD)	
 clean:
 	for i in $(TARGETS); do \

@@ -1,26 +1,16 @@
- #include <iostream>
+#include <iostream>
 
-void doB ()
+int returnFive()
 {
-	std::cout << "In doB()\n";
+	return 5;
 }
 
-void doA ()
+int main()
 {
-	std::cout << "In doA()\n";
-	doB();
-	std::cout << "In doA()\n";
+	std::cout << returnFive() << '\n';
+	std::cout << returnFive() + 2 << '\n';
+
+	returnFive();
+
+	return 0;
 }
-
-
-// C++ 係後call前，即係話main 一定要係最底,𨳒。。。
-int main() {
-	std::cout << "Starting main()\n";
-	doA();
-	std::cout << "Ending main()\n";
-
-
- return 0;
-}
-
-
