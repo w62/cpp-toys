@@ -19,6 +19,8 @@ GCM_CACHE = gcm.cache
 
 MAIN = main
 HELLOWORLD = helloworld
+ADD = add
+
 TARGETS = $(MAIN) $(HELLOWORLD)
 
 
@@ -26,7 +28,7 @@ all: $(TARGETS)
 
 
 $(MAIN): $(MAIN).cpp
-	$(CXX) $(CFLAGS)  -o $(MAIN) $(MAIN).cpp
+	$(CXX) $(CFLAGS)  -o $(MAIN) $(MAIN).cpp $(ADD).cpp
 	./$(MAIN)	
 
 

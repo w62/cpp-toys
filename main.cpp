@@ -1,18 +1,11 @@
 #include <iostream>
 
-void add2(int x)
-{
-	x += 2;
-	std::cout << x << '\n';
-
-}
+int add(int x, int y);
 
 int main()
 {
-	int a;
-	a = 4;
-	add2(a); 
-	std::cout << "a: " << a << '\n';
+	std::cout << "The sum of 3 + 4 is: " << add(3,4)  << '\n';
 	
 	return 0;
 }
+
