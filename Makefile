@@ -1,6 +1,7 @@
 # my make file
 # based on here: https://www.softwaretestinghelp.com/cpp-makefile-tutorial/
-CXX=clang++-17
+CXX=clang++-16
+
 RM=rm
 
 # clang++ -std=c++20 -xc++-system-header --precompile iostream -o iostream.pcm
