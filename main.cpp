@@ -1,4 +1,5 @@
-#include <iostream>
+//#include <iostream>
+import <iostream>;
 /*
  * Note that if the nested block apples had not been defined, the name apples in
  * the nested block would still refer to the outer block apples, so the
