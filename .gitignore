@@ -1,6 +1,1 @@
-main
-helloworld
-gcm.cache
-*.dSYM
-llvm.sh
-iostream.pcm
+build/

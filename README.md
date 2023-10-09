@@ -30,3 +30,12 @@ To use clang-format in vim normal mode:
 ```
 nnoremap <C-K> :%!clang-format <CR>
 ```
+
+09-oct-2023
+===
+Quite a major update.
+
+1. The testing program helloworld.cpp has been removed.
+2. The program of Chapter 1 Professional C++ by Marc Gregorie has been inputed.
+3. The project is now build by CMake.
+
