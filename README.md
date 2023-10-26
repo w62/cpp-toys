@@ -39,3 +39,7 @@ Quite a major update.
 2. The program of Chapter 1 Professional C++ by Marc Gregorie has been inputed.
 3. The project is now build by CMake.
 
+
+15-oct-2023
+===
+Professinal C++ 4th ed page 186 Customer Deleters using malloc. Updated in 5th ed to use new
