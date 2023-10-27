@@ -68,7 +68,6 @@ int main() {
   Spreadsheet s2(5,6);
   s2= s;
 
-
   return 0;
 }
 

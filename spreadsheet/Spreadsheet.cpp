@@ -3,25 +3,26 @@
 
 Spreadsheet::Spreadsheet(size_t width, size_t height)
     : mWidth(width), mHeight(height) {
+  std::cout << "Normal Constructor" << std::endl;
   mCells = new SpreadsheetCell*[mWidth];
   for (size_t i = 0; i < mWidth; i++) {
     mCells[i] = new SpreadsheetCell[mHeight];
   }
-  std::cout << "Normal Constructor" << std::endl;
 }
 
 Spreadsheet::Spreadsheet(const Spreadsheet& src)
     : Spreadsheet(src.mWidth, src.mHeight) {
+  std::cout << "Copy Constructor" << std::endl;
   for (size_t i = 0; i < mWidth; i++) {
     for (size_t j = 0; j < mHeight; j++) {
       mCells[i][j] = src.mCells[i][j];
     }
   }
-  std::cout << "Move Constructor" << std::endl;
 }
 
 Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs) {
 
+  std::cout << "Copy Assignment operator" << std::endl;
   // Check for self-assignment
   if (this == &rhs) {
     return *this;
@@ -33,11 +34,13 @@ Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs) {
 }
 
 Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept {
+  std::cout << "Move Constructor" << std::endl;
     swap (*this, src);
 }
 
 
 Spreadsheet& Spreadsheet::operator=(Spreadsheet&& rhs) noexcept {
+  std::cout << "Move Assignment operator" << std::endl;
     Spreadsheet temp(std::move(rhs));
     swap (*this, temp);
     return *this;
