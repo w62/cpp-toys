@@ -1,17 +1,26 @@
 #include <iostream>
+#include <algorithm>
 #include "Spreadsheet.h"
 
-Spreadsheet::Spreadsheet(size_t width, size_t height)
-    : mWidth(width), mHeight(height) {
+size_t Spreadsheet::sCounter;
+Spreadsheet::Spreadsheet(size_t width, size_t height,
+        const SpreadsheetApplication& theApp)
+    : mId(sCounter++)
+      , mWidth(std::min(width, kMaxWidth))
+      , mHeight(std::min(height, kMaxHeight))
+      , mTheApp(theApp)
+{
   std::cout << "Normal Constructor" << std::endl;
+  std::cout << mId << std::endl;
   mCells = new SpreadsheetCell*[mWidth];
   for (size_t i = 0; i < mWidth; i++) {
     mCells[i] = new SpreadsheetCell[mHeight];
   }
 }
 
+
 Spreadsheet::Spreadsheet(const Spreadsheet& src)
-    : Spreadsheet(src.mWidth, src.mHeight) {
+    : Spreadsheet(src.mWidth, src.mHeight, src.mTheApp) {
   std::cout << "Copy Constructor" << std::endl;
   for (size_t i = 0; i < mWidth; i++) {
     for (size_t j = 0; j < mHeight; j++) {
@@ -33,25 +42,15 @@ Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs) {
   return *this;
 }
 
-Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept {
-  std::cout << "Move Constructor" << std::endl;
-    swap (*this, src);
-}
 
-
-Spreadsheet& Spreadsheet::operator=(Spreadsheet&& rhs) noexcept {
-  std::cout << "Move Assignment operator" << std::endl;
-    Spreadsheet temp(std::move(rhs));
-    swap (*this, temp);
-    return *this;
-}
 
 void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell& cell) {
   verifyCoordinate(x, y);
   mCells[x][y] = cell;
 }
 
-SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y) {
+
+const SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y) const {
   verifyCoordinate(x, y);
   return mCells[x][y];
 }
@@ -66,24 +65,15 @@ Spreadsheet::~Spreadsheet()
     mWidth = mHeight = 0;
 }
 
-/*
-void Spreadsheet::moveFrom(Spreadsheet& src) noexcept
-{
-    // Shallow copy of data as they are primitives: Otherwise need to use
-    // std::move(src.mWidth)
-    mWidth = src.mWidth;
-    mHeight = src.mHeight;
-    mCells = src.mCells;
-
-    // Reset the source object, because ownership has been moved!
-    src.mWidth = 0;
-    src.mHeight = 0;
-    src.mCells = nullptr;
-}
-*/
 void Spreadsheet::verifyCoordinate(size_t x, size_t y) const {
   if (x >= mWidth || y >= mHeight) {
     throw std::out_of_range("");
   }
 }
 
+void swap(Spreadsheet& first, Spreadsheet& second) noexcept
+{
+    std::swap(first.mWidth, second.mWidth);
+    std::swap(first.mHeight, second.mHeight);
+    std::swap(first.mCells, second.mCells);
+}

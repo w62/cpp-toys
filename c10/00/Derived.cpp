@@ -20,13 +20,17 @@ class Derived : public Base {
 };
 
 int main() {
-  Base* base = new Derived();
 
-  // virtual function binding
+    Base myBase;
+    myBase.someMethod();
 
-  // Non-virtual function binding
-  //
-  base->someOtherMethod();
+    Derived myDerived;
+    myDerived.someMethod();
+
+    Base& ref = myDerived;
+    myDerived.someOtherMethod();
+    ref.someOtherMethod();
+
   return 0;
 }
 

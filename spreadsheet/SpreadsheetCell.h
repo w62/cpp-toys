@@ -7,13 +7,14 @@ class SpreadsheetCell
         SpreadsheetCell() = default;
         SpreadsheetCell(double initialValue);
         SpreadsheetCell(std::string_view initialValue);
-        void setValue(double inValue);
+        void set(double inValue);
         double getValue() const;
 
-        void setString(std::string_view inString);
+        void set(std::string_view inString);
         std::string getString() const;
     private:
-        std::string doubleToString(double inValue) const;
-        double stringToDouble(std::string_view inString) const;
+        static std::string doubleToString(double inValue) ;
+        static double stringToDouble(std::string_view inString) ;
         double mValue;
+        mutable size_t mNumAccesses = 0;
 };

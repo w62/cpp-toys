@@ -6,24 +6,29 @@ SpreadsheetCell::SpreadsheetCell(double initialValue) : mValue(initialValue) {
 }
 
 SpreadsheetCell::SpreadsheetCell(std::string_view initialValue) {
-  setString(initialValue);
+  set(initialValue);
 }
 
-void SpreadsheetCell::setValue(double inValue) { mValue = inValue; }
+void SpreadsheetCell::set(double inValue) { mValue = inValue; }
 
-double SpreadsheetCell::getValue() const { return mValue; }
+double SpreadsheetCell::getValue() const {
+  mNumAccesses++;
+  return mValue;
+}
 
-void SpreadsheetCell::setString(string_view inString) {
+void SpreadsheetCell::set(string_view inString) {
   mValue = stringToDouble(inString);
 }
 
-string SpreadsheetCell::getString() const { return doubleToString(mValue); }
+string SpreadsheetCell::getString() const {
+  mNumAccesses++;
+  return doubleToString(mValue);
+}
 
-string SpreadsheetCell::doubleToString(double inValue) const {
+std::string SpreadsheetCell::doubleToString(double inValue) {
   return to_string(inValue);
 }
 
-double SpreadsheetCell::stringToDouble(string_view inString) const {
+double SpreadsheetCell::stringToDouble(string_view inString) {
   return strtod(inString.data(), nullptr);
 }
-
