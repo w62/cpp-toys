@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.12)
+set(include_directories sqlite)
+set(MYPROGRAM_FILES sqlite/sqlite3.c)
+ add_executable(db demo.cpp ${MYPROGRAM_FILES})
+ add_executable(dbsh sqlite/shell.c ${MYPROGRAM_FILES})
