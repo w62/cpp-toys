@@ -1,24 +1,24 @@
 #include <iostream>
 #include <typeinfo>
 
+/*
+ * https://www.youtube.com/watch?v=irFkMavpL9A&list=PLvv0ScY6vfd8j-tlhYVPYgiIyXduu6m-L&index=75
+ */
+
+template<typename T>
+T Sum (T arg) {
+    return arg;
+}
+
+template<typename T, typename...Args>
+T Sum(T start, Args...args) {
+    return start + Sum(args...);
+}
+
 int main() {
 
-    int x;
-    int& ref = x;
-
-    struct myStruct {
-        double d;
-        bool b;
-    } mStruct;
-
-    myStruct& t = mStruct;
-
-
-    std::cout << "x type: " << typeid(x).name() << std::endl;
-    std::cout << "ref type: " << typeid(ref).name() << std::endl;
-
-    std::cout << "mStruct type: " << typeid(mStruct).name() << std::endl;
-    std::cout << "t type: " << typeid(t).name() << std::endl;
-
-  return (0);
+    std::cout << Sum(1,2,3,4,5) << std::endl;
+    std::cout << std::endl;
+    std::cout << Sum(3,4,5) << std::endl;
+    return 0;
 }
