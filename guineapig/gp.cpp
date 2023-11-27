@@ -1,24 +1,31 @@
 #include <iostream>
-#include <typeinfo>
 
-/*
- * https://www.youtube.com/watch?v=irFkMavpL9A&list=PLvv0ScY6vfd8j-tlhYVPYgiIyXduu6m-L&index=75
- */
+struct MyStruct {
+    void Function() {
+        std::cout << "counter: " << counter << std::endl;
 
-template<typename T>
-T Sum (T arg) {
-    return arg;
-}
+        auto f = [*this]() mutable{
+            counter ++;
 
-template<typename T, typename...Args>
-T Sum(T start, Args...args) {
-    return start + Sum(args...);
-}
+            return counter; };
+
+        std::cout << "ii: " << f() << std::endl;
+
+    };
+
+    int counter {0};
+};
 
 int main() {
 
-    std::cout << Sum(1,2,3,4,5) << std::endl;
-    std::cout << std::endl;
-    std::cout << Sum(3,4,5) << std::endl;
+    MyStruct instance;
+
+    instance.Function();
+    instance.Function();
+    instance.Function();
+    instance.Function();
+
+
+
     return 0;
 }
