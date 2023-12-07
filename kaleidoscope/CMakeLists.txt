@@ -13,6 +13,7 @@ include_directories(${LLVM_INCLUDE_DIRS})
 separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
 add_definitions(${LLVM_DEFINITIONS_LIST})
 add_executable(toy toy.cpp)
+add_executable(his_toy his_toy.cpp)
 
 
 # ld: warning: ignoring duplicate libraries: '/opt/homebrew/opt/llvm/lib/libLLVMCore.a', '/opt/homebrew/opt/llvm/lib/libLLVMSupport.a'
@@ -22,6 +23,7 @@ add_executable(toy toy.cpp)
 llvm_map_components_to_libnames(llvm_libs irreader)
 
 target_link_libraries(toy ${llvm_libs})
+target_link_libraries(his_toy ${llvm_libs})
 message(STATUS "will link toy with ${llvm_libs}")
 
 # This file is based on the example from
