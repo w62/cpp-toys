@@ -24,3 +24,16 @@ code listing.
 my_top.cpp is my own input. his_toy.cpp is the copy-and-paste version from the 
 end of the code listing.
 
+for 4. Kaleidoscope: Adding JIT and Optimizer Support, things are bit out of 
+control. The CMakeLists.txt somehow does not work. I have to use the compilation
+command line in the web page
+
+```
+clang++ -g toy.cpp `llvm-config --cxxflags --ldflags --system-libs --libs core orcjit native` -O3 -o toy
+```
+
+The code are very brief in the web page. The complete code listing at the end
+is the program that works. I have copy and paste it into t.cpp and compare the
+file with `diff -u3` as well as the result.
+
+Everything is in ch4/ now. I will create a ch5/ in the next step.
