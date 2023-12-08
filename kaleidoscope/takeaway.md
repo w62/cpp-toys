@@ -37,3 +37,7 @@ is the program that works. I have copy and paste it into t.cpp and compare the
 file with `diff -u3` as well as the result.
 
 Everything is in ch4/ now. I will create a ch5/ in the next step.
+
+For 5. Kaleidoscope: Extending the Language: Control Flow, things are easier 
+than expected. It is essentially just dump whatever is there. Code generated
+successfully, but we need to wait until later stage.
