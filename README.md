@@ -1,8 +1,24 @@
-19-sep-2023
+15-aug-2025
 ===
-[2.2 - Function return values(value-returning functions)](https://www.learncpp.com/cpp-tutorial/function-return-values-value-returning-functions/)
+Quite an overhaul of the directories.
+- llvm contains examples from the llvm webpage
+- pcpp contains exmaples based on Professional C++
+- others are those based on random Internet examples
 
-[2.5 — Introduction to local scope](https://www.learncpp.com/cpp-tutorial/introduction-to-local-scope/)
+Just refresh my memories and briefly sort things out. Most things are broken.
+
+15-oct-2023
+===
+Professinal C++ 4th ed page 186 Customer Deleters using malloc. Updated in 5th ed to use new
+
+09-oct-2023
+===
+Quite a major update.
+
+1. The testing program helloworld.cpp has been removed.
+2. The program of Chapter 1 Professional C++ by Marc Gregorie has been inputed.
+3. The project is now build by CMake.
+
 
 24-sep-2023
 ===
@@ -31,15 +47,9 @@ To use clang-format in vim normal mode:
 nnoremap <C-K> :%!clang-format <CR>
 ```
 
-09-oct-2023
+
+19-sep-2023
 ===
-Quite a major update.
+[2.2 - Function return values(value-returning functions)](https://www.learncpp.com/cpp-tutorial/function-return-values-value-returning-functions/)
 
-1. The testing program helloworld.cpp has been removed.
-2. The program of Chapter 1 Professional C++ by Marc Gregorie has been inputed.
-3. The project is now build by CMake.
-
-
-15-oct-2023
-===
-Professinal C++ 4th ed page 186 Customer Deleters using malloc. Updated in 5th ed to use new
+[2.5 — Introduction to local scope](https://www.learncpp.com/cpp-tutorial/introduction-to-local-scope/)

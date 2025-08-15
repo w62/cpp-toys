@@ -26,8 +26,8 @@ message(STATUS "OK, Using LLVMConfig.cmake in: ${LLVM_DIR}")
 include_directories(${LLVM_INCLUDE_DIRS})
 separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
 add_definitions(${LLVM_DEFINITIONS_LIST})
-add_executable(toy toy.cpp)
-add_executable(his_toy his_toy.cpp)
+#add_executable(toy toy.cpp)
+#add_executable(his_toy his_toy.cpp)
 
 
 # ld: warning: ignoring duplicate libraries: '/opt/homebrew/opt/llvm/lib/libLLVMCore.a', '/opt/homebrew/opt/llvm/lib/libLLVMSupport.a'
