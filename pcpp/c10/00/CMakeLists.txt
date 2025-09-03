@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.12)
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_COMPILER  /opt/homebrew/opt/llvm/bin/clang++)
-set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_CXX_FLAGS_DEBUG -march=native)
-set(CMAKE_CXX_FLAGS_RELEASE -march=native)
-add_executable(d Derived.cpp)
