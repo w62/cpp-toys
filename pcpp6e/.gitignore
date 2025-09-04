@@ -1,2 +1,3 @@
 gcm.cache/
-hello/
+hello
+*.o
