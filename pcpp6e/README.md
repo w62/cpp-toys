@@ -17,3 +17,20 @@ g++-15 -std=c++23 -fmodules-ts -fsearch-include-path bits/std.cc  -c -x c++ Airl
 
 
 g++-15 -std=c++23 -fmodules-ts -fsearch-include-path bits/std.cc -o AirlineTicket AirlineTicket.cpp AirlineTicketTest.cpp AirlineTicket.o
+
+
+ --style=<string>               - Set coding style. <string> can be:
+                                   1. A preset: LLVM, GNU, Google, Chromium, Microsoft,
+                                      Mozilla, WebKit.
+                                   2. 'file' to load style configuration from a
+                                      .clang-format file in one of the parent directories
+                                      of the source file (for stdin, see --assume-filename).
+                                      If no .clang-format file is found, falls back to
+                                      --fallback-style.
+                                      --style=file is the default.
+                                   3. 'file:<format_file_path>' to explicitly specify
+                                      the configuration file.
+                                   4. "{key: value, ...}" to set specific parameters, e.g.:
+
+
+g++-15 -std=c++23 -fmodules-ts -fsearch-include-path bits/std.cc  -c -x c++ -o 
