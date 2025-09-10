@@ -3,8 +3,6 @@ module spreadsheet_cell;
 import std;
 using namespace std;
 
-
-
 SpreadsheetCell::SpreadsheetCell(double initialValue) {
   setValue(initialValue);
 }
@@ -13,7 +11,10 @@ SpreadsheetCell::SpreadsheetCell(std::string_view initialValue) {
   setString(initialValue);
 }
 
-
+/* Copy constructors for the sake of demo
+SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell& src)
+    : m_value{src.m_value} {}
+*/
 void SpreadsheetCell::setValue(double value) { m_value = value; }
 
 void SpreadsheetCell::setValue2(double value) {

@@ -1,6 +1,8 @@
 import std;
 import spreadsheet_cell;
+import ctor;
 using namespace std;
+
 int main() {
   SpreadsheetCell mySC{15};
 
@@ -82,5 +84,16 @@ accidentally used after deleting the object.
   {
     SpreadsheetCell cells[3];
     SpreadsheetCell cell;  // 如果冇  SpreadsheetCell() = default; 爆炸
+  }
+
+  {  // ctor
+    MyClass instance{1.2};
+  }
+
+  { // Calling the Copy constructor Explicitly 
+    SpreadsheetCell myCell1{4};
+    SpreadsheetCell myCell2{myCell1};
+    println("myCell1.getValue() = {}", myCell1.getValue());
+    println("myCell2.getValue() = {}", myCell2.getValue());
   }
 }
