@@ -3,6 +3,7 @@ module ctor;
 import std;
 using namespace std;
 
+
 Foo::Foo(double value) : m_value{value} {
   println("Foo::m_value = {}", m_value);
 }

@@ -1,6 +1,7 @@
 import std;
 import spreadsheet_cell;
 import ctor;
+import initializer_list;
 using namespace std;
 
 int main() {
@@ -90,10 +91,14 @@ accidentally used after deleting the object.
     MyClass instance{1.2};
   }
 
-  { // Calling the Copy constructor Explicitly 
+  {  // Calling the Copy constructor Explicitly
     SpreadsheetCell myCell1{4};
     SpreadsheetCell myCell2{myCell1};
     println("myCell1.getValue() = {}", myCell1.getValue());
     println("myCell2.getValue() = {}", myCell2.getValue());
+  }
+  {
+    EvenSequence p1 {1.0, 2.0, 3.0, 4.0, 5.0};
+    p1.print();
   }
 }
