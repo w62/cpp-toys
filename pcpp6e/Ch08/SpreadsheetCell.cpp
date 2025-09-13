@@ -7,14 +7,27 @@ SpreadsheetCell::SpreadsheetCell(double initialValue) {
   setValue(initialValue);
 }
 
-SpreadsheetCell::SpreadsheetCell(std::string_view initialValue) {
-  setString(initialValue);
+SpreadsheetCell::SpreadsheetCell(std::string_view initialValue) : SpreadsheetCell{stringToDouble(initialValue)} {
+//  setString(initialValue);
 }
 
-/* Copy constructors for the sake of demo
+// Copy constructors for the sake of demo
 SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell& src)
     : m_value{src.m_value} {}
-*/
+/*
+SpreadsheetCell& SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
+{
+  if (this == &rhs) {
+    return *this;
+  }
+  m_value = rhs.m_value;
+  return *this;
+}
+  */
+
+SpreadsheetCell::~SpreadsheetCell() {
+  println("Distructor called.");
+}
 void SpreadsheetCell::setValue(double value) { m_value = value; }
 
 void SpreadsheetCell::setValue2(double value) {

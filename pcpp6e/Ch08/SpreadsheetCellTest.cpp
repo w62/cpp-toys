@@ -4,6 +4,14 @@ import ctor;
 import initializer_list;
 using namespace std;
 
+class MyClass2 {
+ public:
+  explicit MyClass2(int) {}
+  explicit MyClass2(int, int) {}
+};
+
+void process(const MyClass2& c) {}
+
 int main() {
   SpreadsheetCell mySC{15};
 
@@ -98,7 +106,23 @@ accidentally used after deleting the object.
     println("myCell2.getValue() = {}", myCell2.getValue());
   }
   {
-    EvenSequence p1 {1.0, 2.0, 3.0, 4.0, 5.0};
+    EvenSequence p1{1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
     p1.print();
+  }
+  {
+    SpreadsheetCell myCell{4};
+    myCell = 5;
+    // myCell = "6"sv;  // A string_view literal (see Chapter 2).
+  }
+
+  {
+    //process(1);
+    process(MyClass2{1});
+    process(MyClass2{1, 2});
+  }
+
+  {
+    SpreadsheetCell myCell {5}, anotherCell;
+    anotherCell = myCell;
   }
 }

@@ -4,9 +4,13 @@ export class SpreadsheetCell {
  public:
   SpreadsheetCell() = default;
   SpreadsheetCell(double initialValue);
-  SpreadsheetCell(std::string_view initialValue);
-  // SpreadsheetCell(const SpreadsheetCell& src); // Copy constructors for the
+  explicit SpreadsheetCell(std::string_view initialValue);
+  SpreadsheetCell(const SpreadsheetCell& src); // Copy constructors for the
   // sake of demo
+
+  //SpreadsheetCell& operator=(const SpreadsheetCell& rhs);
+  ~SpreadsheetCell();
+
   void setValue(double);
   void setValue2(double);
   void setValue223(this SpreadsheetCell& self, double value);
