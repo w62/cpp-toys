@@ -2,6 +2,8 @@ import std;
 import spreadsheet_cell;
 import ctor;
 import initializer_list;
+import Person;
+
 using namespace std;
 
 class MyClass2 {
@@ -124,5 +126,15 @@ accidentally used after deleting the object.
   {
     SpreadsheetCell myCell {5}, anotherCell;
     anotherCell = myCell;
+  }
+
+  {
+    Person mp;
+    mp.setFirstName("John");
+    mp.setLastName("Doe");
+
+    println("mp.FirstName {} mp.LastName {}",mp.getFirstName(), mp.getLastName());
+Person p3[3];
+
   }
 }
