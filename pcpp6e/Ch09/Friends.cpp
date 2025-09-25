@@ -1,0 +1,3 @@
+module friends;
+
+import std;
