@@ -1,7 +1,7 @@
 CXX=g++-15
 CXX_STANDARD=-std=c++23
 MODULE_FLAGS=-fmodules-ts -fsearch-include-path bits/std.cc
-CXX_FLAGS=-c -x c++
+CXX_FLAGS=-c -x c++ 
 
 # g++-15 -std=c++23 -fmodules-ts  -o EmployeeTest EmployeeTest.cpp Employee.cpp std.o Employee.o
 

@@ -165,8 +165,10 @@ void swap(Spreadsheet& first, Spreadsheet& second) noexcept {
 // m_cells = std::exchange(src.m_cells, nullptr);
 // }
 
-Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept{
-  //moveFrom(src);
-  
+Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept {
+  // moveFrom(src);
+
   swap(src);
 }
+
+std::size_t Spreadsheet::getCounter() { return ms_counter; }

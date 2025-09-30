@@ -5,12 +5,13 @@ export class SpreadsheetCell {
   SpreadsheetCell() = default;
   SpreadsheetCell(double initialValue);
   SpreadsheetCell(std::string_view initialValue);
+  //SpreadsheetCell operator+(const SpreadsheetCell& cell) const;
 
   void setValue(double);
   void setValue2(double);
   void set(double value);
-  void set (std::string_view value);
-  
+  void set(std::string_view value);
+
   void setValue223(this SpreadsheetCell& self, double value);
   double getValue() const;
   double getValue2() const;
@@ -26,4 +27,6 @@ export class SpreadsheetCell {
   double value{12};
 };
 
+export SpreadsheetCell operator+(const SpreadsheetCell& lhs,
+const SpreadsheetCell& rhs);
 void printCell(const SpreadsheetCell& cell);

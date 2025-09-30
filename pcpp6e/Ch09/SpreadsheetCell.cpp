@@ -32,7 +32,7 @@ void SpreadsheetCell::setValue223(this SpreadsheetCell& self, double value) {
   println("setValue23: End");
 }
 
-double SpreadsheetCell::getValue() const { 
+inline double SpreadsheetCell::getValue() const { 
   ++m_numAccesses;
   return m_value; }
 
@@ -74,3 +74,14 @@ void printCell(const SpreadsheetCell& cell) {
     std::println("set: std::string_view");
     m_value = stringToDouble(value);
   }
+
+  /*
+  SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell& cell) const {
+    return SpreadsheetCell{getValue() + cell.getValue()};
+  }
+*/
+  SpreadsheetCell operator+(const SpreadsheetCell& lhs,
+const SpreadsheetCell& rhs)
+{
+return SpreadsheetCell { lhs.getValue() + rhs.getValue() };
+}
