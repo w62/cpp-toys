@@ -1,31 +1,33 @@
-%:include <print>
+#include <print>
 
 using namespace std;
-class Base {
- public:
-  void someFunction() {
-    println("someFunction called");
-  /* ... */ }
 
- protected:
-  int m_protectedInt{0};
+class WeatherPrediction {
+ public:
+  // virtual destructor
+  virtual ~WeatherPrediction() = default;
+  // Sets the current temperature in Fahrenheit
+  virtual void setCurrentTempFahrenheit(int temp);
+  // Sets the current distance between Jupiter and Mars
+  virtual void setPositionOfJupiter(int distanceFromMars);
+  // Gets the prediction for tomorrow's temperature
+  virtual int getTomorrowTempFahrenheit() const;
+  // Gets the probability of rain tomorrow. 1 means
+  // definite rain. 0 means no chance of rain.
+  virtual double getChanceOfRain() const;
+  // Displays the result to the user in this format:
+  // Result: x.xx chance. Temp. xx
+  virtual void showResult() const;
+  // Returns a string representation of the temperature
+  virtual std::string getTemperature() const;
 
  private:
-  int m_privateInt{0};
+  int m_currentTempFahrenheit{0};
+  int m_distanceFromMars{0};
 };
 
-class Derived : public Base <%
- public:
-  void someOtherFunction() { println("someOtherFunction called"); }
-  void printProtected() { println("{}", m_protectedInt); }
-};
-
-int main() <%
-  Derived d;
-  d.someFunction();  // OK: can access public member of Base through Derived
-  // d.m_protectedInt = 42; // Error: cannot access protected member of Base
-  // d.m_privateInt = 42;   // Error: cannot access private member of Base
-  d.someOtherFunction();
-  d.printProtected();
+class MyWeatherPrediction : public WeatherPrediction {};
+int main() {
+  //  MyWeatherPrediction m;
   return 0;
-%>
+}
