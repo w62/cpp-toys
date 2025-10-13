@@ -1,4 +1,4 @@
-%:include <print>
+#include <print>
 
 using namespace std;
 class Base {
@@ -14,13 +14,13 @@ class Base {
   int m_privateInt{0};
 };
 
-class Derived : public Base <%
+class Derived : public Base {
  public:
   void someOtherFunction() { println("someOtherFunction called"); }
   void printProtected() { println("{}", m_protectedInt); }
 };
 
-int main() <%
+int main() {
   Derived d;
   d.someFunction();  // OK: can access public member of Base through Derived
   // d.m_protectedInt = 42; // Error: cannot access protected member of Base
@@ -28,4 +28,4 @@ int main() <%
   d.someOtherFunction();
   d.printProtected();
   return 0;
-%>
+}
