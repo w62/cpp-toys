@@ -1,4 +1,5 @@
 #include <print>
+#include <string>
 
 using namespace std;
 
@@ -26,10 +27,7 @@ class WeatherPrediction {
   int m_distanceFromMars{0};
 };
 
-<<<<<<< HEAD
-=======
 class MyWeatherPrediction : public WeatherPrediction {
->>>>>>> 24368c54e6e0c5942f9ebe02a296731767b1832e
  public:
   virtual void setCurrentTempCelsius(int temp);
   virtual int getTomorrowTempCelsius() const;
@@ -39,8 +37,6 @@ class MyWeatherPrediction : public WeatherPrediction {
   static int convertFahrenheitToCelsius(int fahrenheit);
 };
 
-<<<<<<< HEAD
-=======
 int MyWeatherPrediction::convertCelsiusToFahrenheit(int celsius) {
   return celsius * 9 / 5 + 32;
 }
@@ -55,6 +51,5 @@ void MyWeatherPrediction::setCurrentTempCelsius(int temp) {
 }
 int main() {
   //  MyWeatherPrediction m;
->>>>>>> 24368c54e6e0c5942f9ebe02a296731767b1832e
   return 0;
 }
